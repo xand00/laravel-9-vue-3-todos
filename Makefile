@@ -10,6 +10,7 @@ copyenv:
 
 install:
 	docker-compose run --rm composer composer install && \
+	docker-compose run --rm php php artisan storage:link && \
 	docker-compose run --rm frontend npm i && \
 	docker-compose run --rm frontend npm run build
 
