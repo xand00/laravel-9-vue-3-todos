@@ -1,8 +1,10 @@
 build:
 	docker-compose build
 
+copyrootenv:
+	cp .env.example .env
+
 copyenv:
-	cp .env.example .env && \
 	docker-compose run --rm php cp .env.example .env && \
 	docker-compose run --rm frontend cp .env.example .env
 
@@ -15,7 +17,7 @@ migrate:
 	docker-compose up -d mysql && \
 	docker-compose run --rm php php artisan migrate
 
-setup: build copyenv install migrate
+setup: copyrootenv build copyenv install migrate
 
 up:
 	docker-compose up -d
