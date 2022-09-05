@@ -15,6 +15,7 @@ install:
 
 migrate:
 	docker-compose up -d mysql && \
+	sleep 20 && \
 	docker-compose run --rm php php artisan migrate
 
 setup: copyrootenv build copyenv install migrate

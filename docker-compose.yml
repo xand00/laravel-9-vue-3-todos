@@ -73,7 +73,6 @@ services:
       - ${FRONTEND_PORT}:8080
   mysql:
     image: mysql:5.7.22
-    restart: unless-stopped
     ports:
       - ${MYSQL_PORT}:3306
     volumes:
