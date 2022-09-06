@@ -27,7 +27,7 @@ window.Echo = new Echo({
   broadcaster: 'pusher',
   key: import.meta.env.VITE_WEBSOCKETS_KEY,
   wsHost: import.meta.env.VITE_WEBSOCKETS_HOST,
-  wsPort: 6001,
+  wsPort: 6010,
   forceTLS: false,
   disableStats: true
 })

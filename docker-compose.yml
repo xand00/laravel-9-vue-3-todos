@@ -34,12 +34,12 @@ services:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
     ports:
-      - 6001:6001
+      - 6010:6010
     volumes:
       - ${BACKEND_PATH}:/var/www/html
     networks:
       - laravel
-    command: php artisan websockets:serve
+    command: php artisan websockets:serve --port 6010
   composer:
     build:
       context: .
@@ -47,13 +47,6 @@ services:
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    volumes:
-      - ${BACKEND_PATH}:/var/www/html
-    working_dir: /var/www/html
-    networks:
-      - laravel
-  node_backend:
-    image: node:16-alpine3.15
     volumes:
       - ${BACKEND_PATH}:/var/www/html
     working_dir: /var/www/html
@@ -73,8 +66,6 @@ services:
       - ${FRONTEND_PORT}:8080
   mysql:
     image: mysql:5.7.22
-    ports:
-      - ${MYSQL_PORT}:3306
     volumes:
       - ./database_data/mysql:/var/lib/mysql
     environment:

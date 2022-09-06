@@ -44,7 +44,7 @@ return [
 		'cluster' => env('PUSHER_APP_CLUSTER'),
 		'encrypted' => true,
 		'host' => 'host.docker.internal',
-		'port' => '6001',
+		'port' => '6010',
 		'scheme' => 'http'
             ],
             'client_options' => [
